@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Jawla.BLL.Services.Account
 {
-    public class AccountRepository : Repository<Jawla.Domain.Entities.Account>, IAccountRepository
+    public class AccountRepository : Repository<Jawla.Domain.Dto.Account>, IAccountRepository
     {
-        private readonly IRepository<Jawla.Domain.Dto.Account> _repository;
+        //private readonly _repository;
         public AccountRepository(Context.JawlaContext Repository)
             : base(Repository)
         {

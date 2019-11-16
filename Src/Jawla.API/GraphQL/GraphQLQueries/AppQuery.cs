@@ -5,7 +5,7 @@ namespace Jawla.API.GraphQL.GraphQLQueries
 {
     public class AppQuery: ObjectGraphType
     {
-        public AppQuery(Jawla.BLL.Services.Account.IAccountRepository repository)
+        public AppQuery(Jawla.Domain.Interfaces.IAccountRepository repository)
         {
             Field<ListGraphType<AccountType>>(
                "accounts",

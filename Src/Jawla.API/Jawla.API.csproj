@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Jawla.BLL\Jawla.BLL.csproj" />
+    <ProjectReference Include="..\Jawla.DAL\Jawla.DAL.csproj" />
     <ProjectReference Include="..\Jawla.Domain\Jawla.Domain.csproj" />
   </ItemGroup>
 

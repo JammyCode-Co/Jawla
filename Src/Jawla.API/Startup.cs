@@ -7,7 +7,7 @@ using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
 using Jawla.API.Extensions;
 using Jawla.API.GraphQL.GraphQLSchema;
-using Jawla.BLL.Services.Account;
+using Jawla.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -18,6 +18,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Jawla.Context;
+using Jawla.DAL.Repositories;
 
 namespace Jawla.API
 {
@@ -34,7 +36,7 @@ namespace Jawla.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<Jawla.Context.JawlaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<JawlaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IAccountRepository, AccountRepository>();
 

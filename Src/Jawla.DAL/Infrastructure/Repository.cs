@@ -6,10 +6,12 @@ using System.Text;
 using Jawla.Context;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Jawla.Domain;
+using Jawla.Domain.Interfaces;
 
 namespace Jawla.DAL.Infrastructure
 {
-    public abstract class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<TModel> : IRepository<TModel> where TModel : Model
     {
         protected JawlaContext JawlaContext { get; set; }
 
@@ -18,29 +20,29 @@ namespace Jawla.DAL.Infrastructure
             this.JawlaContext = repositoryContext;
         }
 
-        public async Task<IQueryable<T>> FindAll()
+        public async Task<IQueryable<TModel>> FindAll()
         {
-            return this.JawlaContext.Set<T>().AsNoTracking();
+            return this.JawlaContext.Set<TModel>().AsNoTracking();
         }
 
-        public async Task<IQueryable<T>> FindByCondition(Expression<Func<T, bool>> expression)
+        public async Task<IQueryable<TModel>> FindByCondition(Expression<Func<TModel, bool>> expression)
         {
-            return this.JawlaContext.Set<T>().Where(expression).AsNoTracking();
+            return this.JawlaContext.Set<TModel>().Where(expression).AsNoTracking();
         }
 
-        public void Create(T entity)
+        public void Create(TModel entity)
         {
-            this.JawlaContext.Set<T>().Add(entity);
+            this.JawlaContext.Set<TModel>().Add(entity);
         }
 
-        public void Update(T entity)
+        public void Update(TModel entity)
         {
-            this.JawlaContext.Set<T>().Update(entity);
+            this.JawlaContext.Set<TModel>().Update(entity);
         }
 
-        public void Delete(T entity)
+        public void Delete(TModel entity)
         {
-            this.JawlaContext.Set<T>().Remove(entity);
+            this.JawlaContext.Set<TModel>().Remove(entity);
         }
     }
 }
