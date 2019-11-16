@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jawla.DAL.Infrastructure
 {
-    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected JawlaContext JawlaContext { get; set; }
 
-        public RepositoryBase(JawlaContext repositoryContext)
+        public Repository(JawlaContext repositoryContext)
         {
             this.JawlaContext = repositoryContext;
         }

@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Account\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Jawla.DAL\Jawla.DAL.csproj" />
+    <ProjectReference Include="..\Jawla.Domain\Jawla.Domain.csproj" />
   </ItemGroup>
 
 </Project>

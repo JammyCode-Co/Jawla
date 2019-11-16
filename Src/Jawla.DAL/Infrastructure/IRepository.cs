@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Jawla.DAL.Infrastructure  
 {
-    public interface IRepositoryBase<T>
+    public interface IRepository<T>
     {
         Task<IQueryable<T>> FindAll();
         Task<IQueryable<T>> FindByCondition(Expression<Func<T, bool>> expression);

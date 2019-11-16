@@ -1,5 +1,4 @@
-﻿using Jawla.DAL.Configurations;
-using Jawla.Domain.Entities;
+﻿using Jawla.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 
